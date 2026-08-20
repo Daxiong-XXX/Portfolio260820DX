@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 相关物料视觉合集 — Statement Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0A0A0A',
+                    },
+                    letterSpacing: {
+                        tightest: '-0.05em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .section-number {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+        
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+        }
+        
+        .category-tag {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            color: #fff;
+        }
+        
+        .detail-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .detail-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .detail-gallery-item {
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        
+        .detail-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .detail-gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div class="max-w-[1600px] mx-auto px-8 py-6 flex justify-between items-center">
+            <a href="index.html" class="text-white font-semibold tracking-tight text-lg">Portfolio2026.</a>
+            <div class="hidden md:flex gap-8 text-xs tracking-widest uppercase text-white/70">
+                <a href="index.html#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#work" class="hover:text-white transition-colors">Selected Work</a>
+                <a href="index.html#categories" class="hover:text-white transition-colors">Categories</a>
+                <a href="index.html#about" class="hover:text-white transition-colors">About</a>
+                <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 项目详情内容 -->
+    <section class="pt-32 pb-32 px-8">
+        <div class="max-w-[1600px] mx-auto">
+            <!-- 返回按钮：跳回主页并定位到精选项目板块 -->
+            <a href="index.html#work" class="back-btn mb-12 fade-in">
+                ← Back to Works
+            </a>
+            
+            <div class="section-number mb-4 fade-in">/ P-001 — Project Detail</div>
+            <h2 class="text-5xl md:text-7xl font-semibold tracking-tight leading-none mb-16 fade-in">
+                AI 相关物料视觉合集
+            </h2>
+            
+            <div class="aspect-[21/9] rounded-sm overflow-hidden mb-16 fade-in">
+                <img src="images/project-05.webp" alt="主视觉" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="grid grid-cols-12 gap-16 mb-20 fade-in">
+                <div class="col-span-12 md:col-span-4">
+                    <div class="category-tag mb-2">AIGC合集</div>
+                    <p class="text-xl">AIGC / GENERATIVE DESIGN</p>
+                    <div class="category-tag mb-2 mt-8">完成年份</div>
+                    <p class="text-xl">2026/2025</p>
+                    <div class="category-tag mb-2 mt-8">服务内容</div>
+                    <p class="text-xl">产品视觉 / 创意探索</p>
+                </div>
+                <div class="col-span-12 md:col-span-7 md:col-start-6">
+                    <p class="text-white/70 text-lg leading-relaxed mb-6">
+                       面向跨境电商业务搭建的 AIGC 商业视觉物料库，融合产品商业逻辑与 AI 生成能力，平衡创意产出效率与真实商用落地效果。
+                    </p>
+                    <p class="text-white/50 leading-relaxed">
+                        视觉适配多品类产品风格，依靠光影构建不同产品的氛围感，快速产出可直接上线的电商创意素材，适配亚马逊、独立站等跨境全渠道商用输出。
+                    </p>
+                </div>
+            </div>
+            
+<!-- 作品详情图库 - 双列瀑布流 + 容器内悬停放大5% + 平滑动画 + 点击灯箱版 -->
+<div class="columns-2 gap-4 w-full">
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-1.jpg')">
+    <img src="images/Project5-Well-1.jpg" alt="细节展示1" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-2.jpg')">
+    <img src="images/Project5-Well-2.jpg" alt="细节展示2" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-3.jpg')">
+    <img src="images/Project5-Well-3.jpg" alt="细节展示3" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-4.jpg')">
+    <img src="images/Project5-Well-4.jpg" alt="细节展示4" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-5.jpg')">
+    <img src="images/Project5-Well-5.jpg" alt="细节展示5" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-6.jpg')">
+    <img src="images/Project5-Well-6.jpg" alt="细节展示6" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-7.jpg')">
+    <img src="images/Project5-Well-7.jpg" alt="细节展示7" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-8.jpg')">
+    <img src="images/Project5-Well-8.jpg" alt="细节展示8" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-9.jpg')">
+    <img src="images/Project5-Well-9.jpg" alt="细节展示9" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-10.jpg')">
+    <img src="images/Project5-Well-10.jpg" alt="细节展示10" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-11.jpg')">
+    <img src="images/Project5-Well-11.jpg" alt="细节展示11" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-12.jpg')">
+    <img src="images/Project5-Well-12.jpg" alt="细节展示12" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-13.jpg')">
+    <img src="images/Project5-Well-13.jpg" alt="细节展示13" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-14.jpg')">
+    <img src="images/Project5-Well-14.jpg" alt="细节展示14" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-15.jpg')">
+    <img src="images/Project5-Well-15.jpg" alt="细节展示15" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-16.jpg')">
+    <img src="images/Project5-Well-16.jpg" alt="细节展示16" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-17.jpg')">
+    <img src="images/Project5-Well-17.jpg" alt="细节展示17" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-18.jpg')">
+    <img src="images/Project5-Well-18.jpg" alt="细节展示18" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-19.jpg')">
+    <img src="images/Project5-Well-19.jpg" alt="细节展示19" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-20.jpg')">
+    <img src="images/Project5-Well-20.jpg" alt="细节展示20" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-21.jpg')">
+    <img src="images/Project5-Well-21.jpg" alt="细节展示21" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-22.jpg')">
+    <img src="images/Project5-Well-22.jpg" alt="细节展示22" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-23.jpg')">
+    <img src="images/Project5-Well-23.jpg" alt="细节展示23" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-24.jpg')">
+    <img src="images/Project5-Well-24.jpg" alt="细节展示24" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-25.jpg')">
+    <img src="images/Project5-Well-25.jpg" alt="细节展示25" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-26.jpg')">
+    <img src="images/Project5-Well-26.jpg" alt="细节展示26" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-27.jpg')">
+    <img src="images/Project5-Well-27.jpg" alt="细节展示27" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-28.jpg')">
+    <img src="images/Project5-Well-28.jpg" alt="细节展示28" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-29.jpg')">
+    <img src="images/Project5-Well-29.jpg" alt="细节展示29" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-30.jpg')">
+    <img src="images/Project5-Well-30.jpg" alt="细节展示30" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-31.jpg')">
+    <img src="images/Project5-Well-31.jpg" alt="细节展示31" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-32.jpg')">
+    <img src="images/Project5-Well-32.jpg" alt="细节展示32" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-33.jpg')">
+    <img src="images/Project5-Well-33.jpg" alt="细节展示33" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-34.jpg')">
+    <img src="images/Project5-Well-34.jpg" alt="细节展示34" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-35.jpg')">
+    <img src="images/Project5-Well-35.jpg" alt="细节展示35" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-36.jpg')">
+    <img src="images/Project5-Well-36.jpg" alt="细节展示36" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-37.jpg')">
+    <img src="images/Project5-Well-37.jpg" alt="细节展示37" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-38.jpg')">
+    <img src="images/Project5-Well-38.jpg" alt="细节展示38" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-39.jpg')">
+    <img src="images/Project5-Well-39.jpg" alt="细节展示39" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-40.jpg')">
+    <img src="images/Project5-Well-40.jpg" alt="细节展示40" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-41.jpg')">
+    <img src="images/Project5-Well-41.jpg" alt="细节展示41" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-42.jpg')">
+    <img src="images/Project5-Well-42.jpg" alt="细节展示42" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-43.jpg')">
+    <img src="images/Project5-Well-43.jpg" alt="细节展示43" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-44.jpg')">
+    <img src="images/Project5-Well-44.jpg" alt="细节展示44" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-45.jpg')">
+    <img src="images/Project5-Well-45.jpg" alt="细节展示45" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-46.jpg')">
+    <img src="images/Project5-Well-46.jpg" alt="细节展示46" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-47.jpg')">
+    <img src="images/Project5-Well-47.jpg" alt="细节展示47" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-48.jpg')">
+    <img src="images/Project5-Well-48.jpg" alt="细节展示48" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-49.jpg')">
+    <img src="images/Project5-Well-49.jpg" alt="细节展示49" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-43.jpg')">
+    <img src="images/Project5-Well-50.jpg" alt="细节展示50" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-44.jpg')">
+    <img src="images/Project5-Well-51.jpg" alt="细节展示51" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-45.jpg')">
+    <img src="images/Project5-Well-52.jpg" alt="细节展示52" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-46.jpg')">
+    <img src="images/Project5-Well-53.jpg" alt="细节展示53" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-47.jpg')">
+    <img src="images/Project5-Well-54.jpg" alt="细节展示54" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-48.jpg')">
+    <img src="images/Project5-Well-55.jpg" alt="细节展示55" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+  <div class="mb-4 break-inside-avoid cursor-pointer overflow-hidden rounded-sm group" onclick="openLightbox('images/Project5-Well-49.jpg')">
+    <img src="images/Project5-Well-56.jpg" alt="细节展示56" style="opacity: 1 !important;" class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-[1.05] origin-center">
+  </div>
+</div>
+
+<!-- 全屏灯箱 -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-8 cursor-pointer" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="放大预览" class="max-w-full max-h-full object-contain">
+</div>
+
+<script>
+  function openLightbox(imgSrc) {
+    document.getElementById('lightbox-img').src = imgSrc;
+    document.getElementById('lightbox').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+</script>
+            
+            <div class="mt-20 fade-in">
+                <a href="index.html#work" class="back-btn">
+                    ← 返回主页
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 px-8">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="text-6xl md:text-8xl font-black tracking-tighter text-white/5 leading-none">
+                DAXIONG
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 pt-8 border-t border-white/5 text-xs text-white/30">
+                <div>© 2026 Design Collection. All works are created by Daxiong.</div>
+                <div class="tracking-widest uppercase">Designed & Built with precision</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 导航滚动效果
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

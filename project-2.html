@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D01-车载无线CarPlay — Statement Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0A0A0A',
+                    },
+                    letterSpacing: {
+                        tightest: '-0.05em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .section-number {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+        
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+        }
+        
+        .category-tag {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            color: #fff;
+        }
+        
+        .detail-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .detail-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .detail-gallery-item {
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        
+        .detail-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .detail-gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div class="max-w-[1600px] mx-auto px-8 py-6 flex justify-between items-center">
+            <a href="index.html" class="text-white font-semibold tracking-tight text-lg">Portfolio2026.</a>
+            <div class="hidden md:flex gap-8 text-xs tracking-widest uppercase text-white/70">
+                <a href="index.html#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#work" class="hover:text-white transition-colors">Selected Work</a>
+                <a href="index.html#categories" class="hover:text-white transition-colors">Categories</a>
+                <a href="index.html#about" class="hover:text-white transition-colors">About</a>
+                <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 项目详情内容 -->
+    <section class="pt-32 pb-32 px-8">
+        <div class="max-w-[1600px] mx-auto">
+            <!-- 返回按钮：跳回主页并定位到精选项目板块 -->
+            <a href="index.html#work" class="back-btn mb-12 fade-in">
+                ← Back to Works
+            </a>
+            
+            <div class="section-number mb-4 fade-in">/ P-001 — Project Detail</div>
+            <h2 class="text-5xl md:text-7xl font-semibold tracking-tight leading-none mb-16 fade-in">
+                D01-车载无线CarPlay
+            </h2>
+            
+            <div class="aspect-[21/9] rounded-sm overflow-hidden mb-16 fade-in">
+                <img src="images/project-02.webp" alt="主视觉" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="grid grid-cols-12 gap-16 mb-20 fade-in">
+                <div class="col-span-12 md:col-span-4">
+                    <div class="category-tag mb-2">项目类目</div>
+                    <p class="text-xl">车品类目 / AUTO ACCESSORIES</p>
+                    <div class="category-tag mb-2 mt-8">完成年份</div>
+                    <p class="text-xl">2025</p>
+                    <div class="category-tag mb-2 mt-8">服务内容</div>
+                    <p class="text-xl">产品视觉 / 全案设计</p>
+                </div>
+                <div class="col-span-12 md:col-span-7 md:col-start-6">
+                    <p class="text-white/70 text-lg leading-relaxed mb-6">
+                        专为车载场景设计的无线 CarPlay 互联设备，采用高传导铜芯线材，搭配屏蔽抗干扰结构，实现稳定信号传输与流畅车机互联的完美平衡。
+                    </p>
+                    <p class="text-white/50 leading-relaxed">
+                        视觉呈现上突出线材内部结构与金属质感，通过光影塑造产品硬核精密感，强化高端车载数码配件的产品定位，适配亚马逊与独立站全渠道展示。
+                    </p>
+                </div>
+            </div>
+            
+<!-- 作品详情图库 - 最终修复版 -->
+<div class="w-full">
+  <div class="w-full m-0 p-0">
+    <img src="images/D01-Detail-1.jpg" alt="细节展示1" style="opacity: 1 !important; display: block !important;" class="w-full h-auto">
+  </div>
+  <div class="w-full m-0 p-0">
+    <img src="images/D01-Detail-2.jpg" alt="细节展示2" style="opacity: 1 !important; display: block !important;" class="w-full h-auto">
+  </div>
+  <div class="w-full m-0 p-0">
+    <img src="images/D01-Detail-3.jpg" alt="细节展示3" style="opacity: 1 !important; display: block !important;" class="w-full h-auto">
+  </div>
+  <div class="w-full m-0 p-0">
+    <img src="images/D01-Detail-4.jpg" alt="细节展示4" style="opacity: 1 !important; display: block !important;" class="w-full h-auto">
+  </div>
+  <div class="w-full m-0 p-0">
+    <img src="images/D01-Detail-5.jpg" alt="细节展示5" style="opacity: 1 !important; display: block !important;" class="w-full h-auto">
+  </div>
+</div>
+            
+            <div class="mt-20 fade-in">
+                <a href="index.html#work" class="back-btn">
+                    ← 返回主页
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 px-8">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="text-6xl md:text-8xl font-black tracking-tighter text-white/5 leading-none">
+                DAXIONG
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 pt-8 border-t border-white/5 text-xs text-white/30">
+                <div>© 2026 Design Collection. All works are created by Daxiong.</div>
+                <div class="tracking-widest uppercase">Designed & Built with precision</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 导航滚动效果
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
